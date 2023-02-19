@@ -1,0 +1,34 @@
+<manifesto>
+    <meta>
+        <título>TP1</título>
+        <subtítulo>Hungria</subtítulo>
+        <data>2023-02-19</data>
+        <autor>
+            <nome>Júlio Gonçalves</nome>
+            <id>PG50537</id>
+            <gitlink>https://github.com/juliogoncalves147/RPCW2023/tree/main/TP1</gitlink>
+        </autor>
+        <uc>Representação e Processameto de Conhecimento na Web</uc>
+    </meta>
+    <resumo>
+        <p>
+            <b>Mapa Virtual</b>
+        </p>
+        <p> Para cada cidade, adicionaram-se as ligações que estas fazem com outras cidades,
+            contabilizando as ligações nos dois sentidos.</p>
+        <p>
+            <b>Hungria</b>
+        </p>
+        <p> Esta página apresenta informações sobre as 10 cidades mais populosas da Hungria.</p>
+        <p> A partir de um dataset com informações sobre todas as cidades da Hungria, o mesmo é
+            processado e selecionadas as 10 mais populosas. A partir destas são adicionadas algumas
+            informações de modo a conter descrições e imagens.</p>
+    </resumo>
+    <resultados>
+        <resultado path="Mapa Virtual/cidades.py">Script gerador de HTML</resultado>
+        <resultado path="Mapa Virtual/output.html">Página HTML - Mapa Virtual</resultado>
+        <resultado path="Hungria/removeaspas.py">Script de processamento do DataSet Original</resultado>
+        <resultado path="Hungria/script.py">Script gerador de HTML</resultado>
+        <resultado path="Hungria/hungary.html">Página HTML - Hungria</resultado>
+    </resultados>
+</manifesto>
