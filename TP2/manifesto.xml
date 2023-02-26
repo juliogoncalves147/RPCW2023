@@ -1,0 +1,41 @@
+<manifesto>
+    <meta>
+        <título>TP2</título>
+        <subtítulo>Servidor NodeJS/Síte de Arqueosítios</subtítulo>
+        <data>2023-02-26</data>
+        <autor>
+            <nome>Júlio Gonçalves</nome>
+            <id>PG50537</id>
+            <gitlink>https://github.com/juliogoncalves147/RPCW2023/tree/main/TP2</gitlink>
+        </autor>
+        <uc>Representação e Processameto de Conhecimento na Web</uc>
+    </meta>
+    <resumo>
+        <p>
+            <b>Servidor NodeJs</b>
+        </p>
+        <p>Foi criado um servidor NodeJs que apresenta um indíce. Para cada pedido do índice devolve um ficheiro/apresenta uma página relativa a cada ARQ.</p>
+        <p>
+            <b>Script XML</b>
+        </p>
+        <p> Foi criado um script para processar um dataset.xml contendo dezenas de entradas e o desmembrar em vários ficheiros xml.</p>
+        <p> 
+            <b>Ficheiro DTD</b>
+        </p>
+        <p> Foi criado um ficheiro DTD para garantir a integridade dos diversos ficheiros xml a nivel estrutural</p>
+        <p> 
+            <b>Script HTML</b>
+        </p>
+        <p> Foi criado um script para processar os vários ficheiros xml criados anteriormente  e gerar o respetivo ficheiro html.</p>
+    </resumo>
+    <resultados>
+        <resultado path="Paginas_HTML/">Páginas HTML</resultado>
+        <resultado path="Paginas_XML/">Páginas XML</resultado>
+        <resultado path="dataset.xml">Dataset de informação</resultado>
+        <resultado path="index.xml">Página Indíce</resultado>
+        <resultado path="pagina.dtd">Verificação dos ficheiros XML</resultado>
+        <resultado path="script_PagHTML.py">Script Páginas HTML</resultado>
+        <resultado path="script_PagXML.py">Script Páginas XML</resultado>
+        <resultado path="script_index.py">Script Página Indíce</resultado>
+    </resultados>
+</manifesto>
