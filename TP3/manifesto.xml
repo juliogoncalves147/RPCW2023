@@ -1,0 +1,32 @@
+<manifesto>
+    <meta>
+        <título>TP3</título>
+        <subtítulo>Servidor NodeJS/Serviço de Consulta</subtítulo>
+        <data>2023-03-03</data>
+        <autor>
+            <nome>Júlio Gonçalves</nome>
+            <id>PG50537</id>
+            <gitlink>https://github.com/juliogoncalves147/RPCW2023/tree/main/TP3</gitlink>
+        </autor>
+        <uc>Representação e Processameto de Conhecimento na Web</uc>
+    </meta>
+    <resumo>
+        <p>
+            <b>Servidor</b>
+        </p>
+        <p>Foi criado um servidor que responde a pedidos http. Através do módulo axios, conseguimos fazer uso do json-server para obtermos o informações diretamente do dataset.</p>
+        <p>
+            <b>MyPages</b>
+        </p>
+        <p> Foi criado um script apresentar os diferentes objetos em páginas html formatadas</p>
+        <p> 
+            <b></b>
+        </p>
+    </resumo>
+    <resultados>
+        <resultado path="dataset.json">Dataset utilizado</resultado>
+        <resultado path="mypages.js">Ficheiro JS para gerar páginas html</resultado>
+        <resultado path="servidor.js">Servidor para responder a pedidos</resultado>
+        <resultado path="w3.css"> Módulo CSS para customizar as páginas html</resultado>
+    </resultados>
+</manifesto>
