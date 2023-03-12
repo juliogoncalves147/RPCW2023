@@ -1,0 +1,27 @@
+{
+  "toDo": [
+    {
+      "deadline": "2023-03-21",
+      "person": "Angel",
+      "description": "Organizar a papelada da empresa",
+      "done": false,
+      "id": 1,
+      "date": "2023-03-12"
+    },
+    {
+      "deadline": "2023-04-30",
+      "person": "Andre",
+      "description": "Preparar relatório de vendas",
+      "done": true,
+      "id": 2,
+      "date": "2023-03-12"
+    },
+    {
+      "deadline": "2023-04-25",
+      "person": "João",
+      "description": "Atualizar o site da empresa",
+      "done": false,
+      "id": 3
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+<manifesto>
+    <meta>
+        <título>TP4</título>
+        <subtítulo>App To-Do List</subtítulo>
+        <data>2023-03-12</data>
+        <autor>
+            <nome>Júlio Gonçalves</nome>
+            <id>PG50537</id>
+            <gitlink>https://github.com/juliogoncalves147/RPCW2023/tree/main/TP3</gitlink>
+        </autor>
+        <uc>Representação e Processameto de Conhecimento na Web</uc>
+    </meta>
+    <resumo>
+        <p>
+            <b>Servidor</b>
+        </p>
+        <p>Foi criado um servidor que responde a pedidos http. Através do módulo axios, conseguimos fazer uso do json-server para obtermos o informações diretamente do dataset.</p>
+        <p>
+            <b>Templates</b>
+        </p>
+        <p> Foi criado um script para formatar a informação e apresentá-la</p>
+        <p> 
+            <b></b>
+        </p>
+    </resumo>
+    <resultados>
+        <resultado path="list.json">Ficheiro Json-Server</resultado>
+        <resultado path="static.js">Ficheiro JS para responder a pedidos de ficheiros comuns</resultado>
+        <resultado path="servidor.js">Servidor para responder a pedidos</resultado>
+        <resultado path="templates.js">Script que retorna diferentes páginas HTML</resultado>
+        <resultado path="post_request.js">Método Post</resultado>
+        <resultado path="/public/">Pasta com ficheiros publicos</resultado>
+    </resultados>
+</manifesto>
