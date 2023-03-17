@@ -1,0 +1,218 @@
+extends layout 
+
+block content 
+    header.w3-container.w3-teal
+        h1 To-Do App
+
+    .w3-container.formcontainer.w3-padding-32
+        h2 Add New Task
+        form.w3-container.w3-card-4.w3-light-grey.w3-text-teal.w3-margin(action="/toDo", method="POST")
+            .w3-row.w3-section
+                .w3-col(style="width:50px")
+                    i.w3-xxlarge.fa.fa-calendar
+                .w3-rest
+                    label.w3-text-teal.w3-text-black(for="deadline") Deadline
+                    input.w3-input.w3-border.w3-round-large(type="date", id="deadline", name="deadline", required)
+            .w3-row.w3-section
+                .w3-col(style="width:50px")
+                    i.w3-xxlarge.fa.fa-user
+                .w3-rest
+                    label.w3-text-teal.w3-text-black(for="person") Person
+                    input.w3-input.w3-border.w3-round-large(type="text", id="person", name="person", required)
+            .w3-row.w3-section
+                .w3-col(style="width:50px")
+                    i.w3-xxlarge.fa.fa-pencil
+                .w3-rest
+                    label.w3-text-teal.w3-text-black(for="description") Description
+                    textarea.w3-input.w3-border.w3-round-large(id="description", name="description", required)
+            .w3-row.w3-section
+                .w3-rest
+                    button.w3-btn.w3-teal.w3-round-large.w3-block(type="submit") Submit
+
+    .w3-row-padding.w3-padding-64.main-content
+        .w3-half.w3-container
+            h2 To-Do List
+            ul#todo-list
+                each task in d  
+                    if task.done == false
+                        .w3-container.w3-card-4.w3-light-grey.w3-margin
+                            li
+                                span
+                                    strong Executer: 
+                                    span= task.person
+                                span
+                                    strong Deadline: 
+                                    span= task.deadline
+                                span
+                                    strong Description: 
+                                    span= task.description
+                                form(action="/done", method="POST")
+                                    input.w3-hide(type="text", name="id", value=task.id)
+                                    input.w3-hide(type="text", name="date", value=concluded)
+                                    button(type="submit") Done
+                                form(action="/delete", method="POST", id="delete-form-"+task.id)
+                                    input(type="hidden", name="id", value=task.id)
+                                    button(type="button", onclick="confirmDelete('delete-form-"+task.id+"')") Delete
+                                form.edit-form(action="/edit", method="POST")
+                                    input(type="hidden", name="id", value=task.id)
+                                    span.edit-person(style="display:none")
+                                        input(type="text", name="person", value=task.person)
+                                    span.edit-deadline(style="display:none")
+                                        input(type="text", name="deadline", value=task.deadline)
+                                    span.edit-description(style="display:none")
+                                        input(type="text", name="description", value=task.description)
+                                    button.edit-task(type="button", onclick="editTask(this)") Edit
+                                    button.save-task(type="submit", onclick="saveTask(this)", style="display: none") Save
+
+
+                                    script.
+                                        function confirmDelete(formId) {
+                                            if (confirm("Are you sure you want to delete this task?")) {
+                                                document.getElementById(formId).submit();
+                                            }
+                                        }
+
+                                        function editTask(button) {
+                                            var li = button.parentNode.parentNode;
+                                            var editPerson = li.querySelector('span.edit-person');
+                                            var editDeadline = li.querySelector('span.edit-deadline');
+                                            var editDescription = li.querySelector('span.edit-description');
+                                            var editButton = li.querySelector('button.edit-task');
+                                            var saveButton = li.querySelector('button.save-task');
+
+                                            editPerson.style.display = 'inline-block';
+                                            editDeadline.style.display = 'inline-block';
+                                            editDescription.style.display = 'inline-block';
+                                            editButton.style.display = 'none';
+                                            saveButton.style.display = 'inline-block';
+                                        }
+
+                                        function saveTask(button) {
+                                            var li = button.parentNode.parentNode;
+                                            var editForm = li.querySelector('form.edit-form');
+                                            var editPerson = li.querySelector('span.edit-person');
+                                            var editDeadline = li.querySelector('span.edit-deadline');
+                                            var editDescription = li.querySelector('span.edit-description');
+                                            var editButton = li.querySelector('button.edit-task');
+                                            var saveButton = li.querySelector('button.save-task');
+
+                                            var formData = new FormData(editForm);
+                                            var xhr = new XMLHttpRequest();
+                                            xhr.onreadystatechange = function() {
+                                                if (xhr.readyState === 4 && xhr.status === 200) {
+                                                    var taskPerson = li.querySelector('span.task-person');
+                                                    var taskDeadline = li.querySelector('span.task-deadline');
+                                                    var taskDescription = li.querySelector('span.task-description');
+
+                                                    taskPerson.innerHTML = editPerson.querySelector('input').value;
+                                                    taskDeadline.innerHTML = editDeadline.querySelector('input').value;
+                                                    taskDescription.innerHTML = editDescription.querySelector('input').value;
+
+                                                    editPerson.style.display = 'none';
+                                                    editDeadline.style.display = 'none';
+                                                    editDescription.style.display = 'none';
+                                                    editButton.style.display = 'inline-block';
+                                                    saveButton.style.display = 'none';
+                                                }
+                                            };
+                                            xhr.open(editForm.getAttribute('method'), editForm.getAttribute('action'), true);
+                                            xhr.send(formData);
+                                        }
+
+
+        .w3-half.w3-container
+            h2 Done List
+            ul#done-list
+                each task in d
+                    if task.done
+                        .w3-container.w3-card-4.w3-light-grey.w3-margin
+                            li
+                                span
+                                    strong Executer: 
+                                    span= task.person
+                                span
+                                    strong Deadline: 
+                                    span= task.deadline
+                                span
+                                    strong Description: 
+                                    span= task.description
+                                span
+                                    strong Concluded: 
+                                    span= task.date
+                                form(action='/notdone', method='POST')
+                                    input(type='hidden', name='id', value=task.id)
+                                    button(type='submit') Not Done
+                                form(action="/delete", method="POST", id="delete-form-"+task.id)
+                                    input(type="hidden", name="id", value=task.id)
+                                    button(type="button", onclick="confirmDelete('delete-form-"+task.id+"')") Delete
+                                form.edit-form(action="/edit", method="POST")
+                                    input(type="hidden", name="id", value=task.id)
+                                    span.edit-person(style="display:none")
+                                        input(type="text", name="person", value=task.person)
+                                    span.edit-deadline(style="display:none")
+                                        input(type="text", name="deadline", value=task.deadline)
+                                    span.edit-description(style="display:none")
+                                        input(type="text", name="description", value=task.description)
+                                    button.edit-task(type="button", onclick="editTask(this)") Edit
+                                    button.save-task(type="submit", onclick="saveTask(this)", style="display: none") Save
+
+                                    script.
+                                        function confirmDelete(formId) {
+                                            if (confirm("Are you sure you want to delete this task?")) {
+                                                document.getElementById(formId).submit();
+                                            }
+                                        }
+
+                                        function editTask(button) {
+                                            var li = button.parentNode.parentNode;
+                                            var editPerson = li.querySelector('span.edit-person');
+                                            var editDeadline = li.querySelector('span.edit-deadline');
+                                            var editDescription = li.querySelector('span.edit-description');
+                                            var editButton = li.querySelector('button.edit-task');
+                                            var saveButton = li.querySelector('button.save-task');
+
+                                            editPerson.style.display = 'inline-block';
+                                            editDeadline.style.display = 'inline-block';
+                                            editDescription.style.display = 'inline-block';
+                                            editButton.style.display = 'none';
+                                            saveButton.style.display = 'inline-block';
+                                        }
+
+                                        function saveTask(button) {
+                                            var li = button.parentNode.parentNode;
+                                            var editForm = li.querySelector('form.edit-form');
+                                            var editPerson = li.querySelector('span.edit-person');
+                                            var editDeadline = li.querySelector('span.edit-deadline');
+                                            var editDescription = li.querySelector('span.edit-description');
+                                            var editButton = li.querySelector('button.edit-task');
+                                            var saveButton = li.querySelector('button.save-task');
+
+                                            var formData = new FormData(editForm);
+                                            var xhr = new XMLHttpRequest();
+                                            xhr.onreadystatechange = function() {
+                                                if (xhr.readyState === 4 && xhr.status === 200) {
+                                                    var taskPerson = li.querySelector('span.task-person');
+                                                    var taskDeadline = li.querySelector('span.task-deadline');
+                                                    var taskDescription = li.querySelector('span.task-description');
+
+                                                    taskPerson.innerHTML = editPerson.querySelector('input').value;
+                                                    taskDeadline.innerHTML = editDeadline.querySelector('input').value;
+                                                    taskDescription.innerHTML = editDescription.querySelector('input').value;
+
+                                                    editPerson.style.display = 'none';
+                                                    editDeadline.style.display = 'none';
+                                                    editDescription.style.display = 'none';
+                                                    editButton.style.display = 'inline-block';
+                                                    saveButton.style.display = 'none';
+                                                }
+                                            };
+                                            xhr.open(editForm.getAttribute('method'), editForm.getAttribute('action'), true);
+                                            xhr.send(formData);
+                                        }
+                                    
+
+
+    footer.w3-container.w3-teal
+        p &copy; 2023 To-Do App
+
+

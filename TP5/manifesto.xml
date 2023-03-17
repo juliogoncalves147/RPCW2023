@@ -1,0 +1,35 @@
+<manifesto>
+    <meta>
+        <título>TP5</título>
+        <subtítulo>App To-Do List</subtítulo>
+        <data>2023-03-17</data>
+        <autor>
+            <nome>Júlio Gonçalves</nome>
+            <id>PG50537</id>
+            <gitlink>https://github.com/juliogoncalves147/RPCW2023/tree/main/TP3</gitlink>
+        </autor>
+        <uc>Representação e Processameto de Conhecimento na Web</uc>
+    </meta>
+    <resumo>
+        <p>
+            <b>Estrutura</b>
+        </p>
+        <p>Foi adotada uma estrutura Express que permite estruturar o tratamento de pedidos e display de páginas. Adotamos também a linguagem PUG como gerador de templates.</p>
+        <p>
+            <b>Base de Dados</b>
+        </p>
+        <p> Foi criada uma diretoria à parte do servidor para tratamento da base de dados.</p>
+        <p> 
+            <b>Editar</b>
+        </p>
+        <p> Foi adicionada a funcionalidade de edição que permite alterar e guardar os campos das tasks.</p>
+    </resumo>
+    <resultados>
+        <resultado path="/APP">Diretoria Servidor</resultado>
+        <resultado path="/DB">Diretoria Base de Dados</resultado>
+        <resultado path="/public">Ficheiros de suporte durante a execução do servidor</resultado>
+        <resultado path="/controllers">Módulo de tratamento de troca de dados com a BD</resultado>
+        <resultado path="/routes">Módulo de tratamento de pedidos HTTP</resultado>
+        <resultado path="/views">Módulo de geração de HTML</resultado>
+    </resultados>
+</manifesto>
