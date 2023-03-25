@@ -51,32 +51,59 @@ block content
                 fieldset 
                     legend Atributos
                     p
-                    label Fumador    
-                    input.w3-check(type="checkbox" name="atributos.fumador" value="true" unchecked-value="false")        
+                    label Fumador
+                    if a.atributos.fumador == true
+                        input.w3-check(type="checkbox" name="atributos.fumador" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.fumador" value="true" )    
                     p
-                    label Gosta de cinema    
-                    input.w3-check(type="checkbox" name="atributos.gosta_cinema" value="true" unchecked-value="false")                  
+                    label Gosta de Cinema
+                    if a.atributos.gosta_cinema == true
+                        input.w3-check(type="checkbox" name="atributos.gosta_cinema" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.gosta_cinema" value="true" )                  
                     p
-                    label Gosta de viajar    
-                    input.w3-check(type="checkbox" name="atributos.gosta_viajar" value="true" unchecked-value="false")                  
+                    label Gosta de viajar
+                    if a.atributos.gosta_viajar == true
+                        input.w3-check(type="checkbox" name="atributos.gosta_viajar" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.gosta_viajar" value="true" )                  
                     p
                     label Acorda cedo    
-                    input.w3-check(type="checkbox" name="atributos.acorda_cedo" value="true" unchecked-value="false")               
+                    if a.atributos.acorda_cedo == true
+                        input.w3-check(type="checkbox" name="atributos.acorda_cedo" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.acorda_cedo" value="true" )               
                     p
                     label Gosta de ler    
-                    input.w3-check(type="checkbox" name="atributos.gosta_ler" value="true" unchecked-value="false")                 
+                    if a.atributos.gosta_ler == true
+                        input.w3-check(type="checkbox" name="atributos.gosta_ler" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.gosta_ler" value="true" )                 
                     p
                     label Gosta de música    
-                    input.w3-check(type="checkbox" name="atributos.gosta_musica" value="true" unchecked-value="false")                  
+                    if a.atributos.gosta_musica == true
+                        input.w3-check(type="checkbox" name="atributos.gosta_musica" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.gosta_musica" value="true" )                  
                     p
                     label Gosta de comer    
-                    input.w3-check(type="checkbox" name="atributos.gosta_comer" value="true" unchecked-value="false")                  
+                    if a.atributos.gosta_comer == true
+                        input.w3-check(type="checkbox" name="atributos.gosta_comer" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.gosta_comer" value="true" )                  
                     p
                     label Gosta de animais de estimação    
-                    input.w3-check(type="checkbox" name="atributos.gosta_animais_estimacao" value="true" unchecked-value="false")                  
+                    if a.atributos.gosta_animais_estimacao == true
+                        input.w3-check(type="checkbox" name="atributos.gosta_animais_estimacao" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.gosta_animais_estimacao" value="true" )                  
                     p
                     label Gosta de dançar    
-                    input.w3-check(type="checkbox" name="atributos.gosta_dancar" value="true" unchecked-value="false")
+                    if a.atributos.gosta_dancar == true
+                        input.w3-check(type="checkbox" name="atributos.gosta_dancar" value="true" checked)
+                    else
+                        input.w3-check(type="checkbox" name="atributos.gosta_dancar" value="true" )
                     p
             button.w3-btn.w3-teal.w3-mb-2(type="submit") Update
     footer.w3-container.w3-teal

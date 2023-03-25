@@ -84,7 +84,7 @@ router.post('/persons/edit', (req,res) => {
   Person.updatePerson(req.body)
     .then(aluno => {
       console.dir(aluno)
-      res.render('updatePersonConfirm', {a: aluno})
+      res.render('updatePersonConfirm', {a: aluno , d: data})
     })
     .catch(erro => {
       res.render('error', {error: erro, message: "Erro na alteração do registo de aluno"})
